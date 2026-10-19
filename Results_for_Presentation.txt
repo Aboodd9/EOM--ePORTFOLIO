@@ -1,0 +1,41 @@
+RESULTS FROM THE EXECUTED MOVIELENS NOTEBOOK
+ML_PCOM7E July 2026
+
+These are actual outputs of this run. Scores describe this benchmark and protocol only.
+
+MODEL COMPARISON
+                         Model  Test RMSE  Sampled NDCG@10  Parameters  Training seconds
+   Biased matrix factorisation   1.043755         0.147835       55125         17.053865
+Neural collaborative filtering   1.059955         0.145020       68249          9.982843
+
+THREE-FOLD DEVELOPMENT RMSE
+model     mean      std
+   MF 0.941369 0.002132
+  NCF 0.957758 0.002958
+
+REPEATED PERMUTATION EXPLANATION
+model input     mean      std
+   MF     i 0.256980 0.018174
+   MF     u 0.139629 0.013757
+  NCF     i 0.226974 0.015846
+  NCF     u 0.111175 0.013015
+
+ACTIVITY GROUP DIAGNOSTICS
+activity_group   n  MF_RMSE  NCF_RMSE
+           low 314 1.081912  1.083171
+        medium 314 1.060293  1.075890
+          high 315 0.986857  1.019794
+
+DEMONSTRATION
+{
+  "user_id": 1,
+  "item_id": 102,
+  "observed": 2.0,
+  "MF": 2.8078425208636757,
+  "NCF": 3.0846407413482666
+}
+
+RANKING: 459 eligible users, each with one held-out rating >=4 and up to 100 sampled unlabelled candidates.
+Primary test: 943 users; per-user chronology, not a global chronological holdout.
+Three shuffled development folds use inner validation for early stopping.
+Timing values are specific to this execution environment.
